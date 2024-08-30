@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --secondary-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  --bg-gradient: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  --text-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #43e97b 100%);
+  --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --transition-duration: 0.6s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-gradient);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  transition: background-color var(--transition-duration) ease;
+  animation: fadeInBody 1s ease;
+  perspective: 1000px;
+}
+
+.container {
+  margin: 30px auto;
+  width: 350px;
+  animation: slideInContainer 0.8s ease-out, rotateIn 1s ease;
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin: 0;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: bounceIn 1s ease;
+}
+
+h3 {
+  border-bottom: 2px solid transparent;
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+  position: relative;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInLeft 0.6s ease;
+}
+
+h3::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background-color: var(--primary-gradient);
+  bottom: -2px;
+  left: 0;
+  animation: slideIn 0.5s ease;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInRight 0.6s ease;
+}
+
+.inc-exp-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  border-radius: 10px;
+  transition: transform var(--transition-duration) ease;
+  animation: zoomIn 0.7s ease, rotateIn 1.2s ease;
+  transform-style: preserve-3d;
+}
+
+.inc-exp-container:hover {
+  transform: translateY(-5px) scale(1.02) rotateX(10deg) rotateY(10deg);
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+  animation: fadeInUp 0.6s ease;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.money {
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rubberBand 1s ease;
+}
+
+label {
+  display: inline-block;
+  margin: 10px 0;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 0.8s ease;
+}
+
+input[type='text'],
+input[type='number'] {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  transition: border-color var(--transition-duration) ease;
+  animation: fadeInDown 0.8s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+input[type='text']:focus,
+input[type='number']:focus {
+  border-color: var(--primary-gradient);
+  outline: none;
+  animation: pulse 1s ease;
+}
+
+.btn {
+  cursor: pointer;
+  background: var(--primary-gradient);
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease;
+  animation: swing 1.2s ease, rotateIn 1s ease;
+}
+
+.btn:hover {
+  background: var(--secondary-gradient);
+  transform: scale(1.1) rotateX(15deg) rotateY(15deg);
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease;
+  transform-style: preserve-3d;
+}
+
+.list li {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--box-shadow);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  transition: transform var(--transition-duration) ease;
+  animation: lightSpeedIn 0.7s ease, rotateIn 1s ease;
+}
+
+.list li.plus {
+  border-right: 5px solid #43e97b;
+}
+
+.list li.minus {
+  border-right: 5px solid #ff4b5c;
+}
+
+.list li:hover {
+  transform: translateX(10px) rotate(2deg) rotateX(10deg) rotateY(10deg);
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity var(--transition-duration) ease;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+  animation: tada 0.5s ease;
+}
+
+@media (max-width: 320px) {
+  .container {
+    width: 300px;
+  }
+}
+
+/* Keyframes for animations */
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInContainer {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rubberBand {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes lightSpeedIn {
+  from {
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+  60% {
+    transform: skewX(20deg);
+    opacity: 1;
+  }
+  80% {
+    transform: skewX(-5deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes tada {
+  from {
+    transform: scale(1);
+  }
+  10%, 20% {
+    transform: scale(0.9) rotate(-3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
